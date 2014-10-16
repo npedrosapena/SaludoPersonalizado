@@ -4,5 +4,6 @@
     <string name="app_name">SaludoPersonalizado</string>
     <string name="hello_world">Hola Nelson, que guapo y listo eres</string>
     <string name="action_settings">Opciones</string>
+    <string name="hola">Hola!</string>
 
 </resources>
