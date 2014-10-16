@@ -11,21 +11,26 @@
 
 
     <EditText
-        android:layout_width="120dp"
-        android:layout_height="80dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/entrada"/>
 
    <Button
        android:layout_width="100dp"
-       android:layout_height="50dp"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
        android:id="@+id/b_saludo"
        android:text="@string/hola"
        />
 
     <TextView
-        android:text="@string/hello_world"
+        android:text="@string/saludo_texto"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/saludo"/>
+
+    
 
 
 
