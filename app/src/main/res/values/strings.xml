@@ -8,5 +8,6 @@
     <string name="saludoSr">Hola Sr. </string>
     <string name="saludoSra">Hola Sra. </string>
     <string name="saludo">Hola</string>
+    <string name="showTime">mostrar hora</string>
 
 </resources>
