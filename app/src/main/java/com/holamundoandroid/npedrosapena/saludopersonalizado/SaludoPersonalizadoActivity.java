@@ -1,22 +1,28 @@
 package com.holamundoandroid.npedrosapena.saludopersonalizado;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 
-public class SaludoPersonalizadoActivity extends Activity {
+public class SaludoPersonalizadoActivity extends Activity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saludo_personalizado);//llamada a la ventana primera
 
@@ -43,37 +49,70 @@ public class SaludoPersonalizadoActivity extends Activity {
 
                 RadioButton seleccionado=(RadioButton)findViewById(R.id.rdsr);
 
-                if(seleccionado.isChecked())
+                if(textoDelEditText.getText().toString().equals(""))
                 {
-                  textoEscribir.setText("Hola Sr.: "+textoDelEditText.getText().toString());
-                    labelDelBoton.setText("le hiciste click + Sr");
-                }else
-                {
-                    textoEscribir.setText("Hola Sra.: "+textoDelEditText.getText().toString());
-                    labelDelBoton.setText("le hiciste click + Sra");
+                  showAlert();
+                  showToast();
+
+                }else {
+
+                    if (seleccionado.isChecked()) {
+                        textoEscribir.setText("Hola Sr.: " + textoDelEditText.getText().toString());
+                        labelDelBoton.setText("le hiciste click + Sr");
+                    } else {
+                        textoEscribir.setText("Hola Sra.: " + textoDelEditText.getText().toString());
+                        labelDelBoton.setText("le hiciste click + Sra");
+                    }
                 }
-
-                CheckBox mostrarHora= (CheckBox)findViewById(R.id.checkbox);
-
-                    TimePicker time=(TimePicker)findViewById(R.id.timePicker);
-
-                if (mostrarHora.isChecked())
-                {
-                    time.setVisibility(View.VISIBLE);
-                }else
-                {
-                    time.setVisibility(View.GONE);
-                }
-
 
             }
         });
 
 
+       final CheckBox mostrarHora= (CheckBox)findViewById(R.id.checkbox);
 
+        mostrarHora.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                TimePicker time=(TimePicker)findViewById(R.id.timePicker);
+                DatePicker fecha=(DatePicker)findViewById(R.id.datePicker);
 
+                if(mostrarHora.isChecked())
+                {
+                    time.setVisibility(View.VISIBLE);
+                    fecha.setVisibility(View.VISIBLE);
+                }else
+                {
+                    time.setVisibility(View.GONE);
+                    fecha.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
+    //muestra un mensaje con boton
+    protected void showAlert()
+    {
+        String texto= getResources().getString(R.string.noName);//de nuestros recursos recogemos el string
+        AlertDialog.Builder alarma= new AlertDialog.Builder(this);
+        alarma.setMessage(texto);
+        alarma.setPositiveButton("aceptar",null);
+        alarma.show();
+    }
+
+    //muestra mensaje clasico por pantalla android
+    protected void showToast()
+    {
+        Context context= getApplicationContext();
+        AlertDialog.Builder textoToast = new AlertDialog.Builder(this);
+
+        int duracion= Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context,"Metelle un nome carallo!",duracion);
+        toast.show();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
