@@ -96,25 +96,27 @@ public class SaludoPersonalizadoActivity extends Activity
         /*           ZONA EXAMEN            */
         /***********************************/
 
-       final RadioButton radioExamen=(RadioButton)findViewById(R.id.saludoDespedida);//obtengo el objeto radioButon
-       final RadioButton radioDespedidaExamen=(RadioButton)findViewById(R.id.despedidaDesdepida);
+        RadioGroup rg= (RadioGroup)findViewById(R.id.RadioGroupDespedida);
 
-        radioExamen.setOnClickListener(new View.OnClickListener()
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             @Override
-            public void onClick(View v)
+            public void onCheckedChanged(RadioGroup group, int checkedId)
             {
-                Toast.makeText(getApplicationContext(), radioExamen.getText().toString(), Toast.LENGTH_SHORT).show();
+                RadioButton radioExamen=(RadioButton)findViewById(R.id.saludoDespedida);//obtengo el objeto radioButon
+
+                if(radioExamen.isChecked()==true)
+                {
+                    Toast.makeText(getApplicationContext(), radioExamen.getText().toString(), Toast.LENGTH_SHORT).show();
+
+                }else
+                {
+                    Toast.makeText(getApplicationContext(), ((RadioButton)findViewById(R.id.despedidaDesdepida)).getText().toString(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
 
-        radioDespedidaExamen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), radioDespedidaExamen.getText().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     //muestra un mensaje con boton
