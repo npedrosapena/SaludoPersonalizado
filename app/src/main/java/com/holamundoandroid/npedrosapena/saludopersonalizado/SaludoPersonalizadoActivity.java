@@ -7,15 +7,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class SaludoPersonalizadoActivity extends Activity
@@ -96,7 +102,11 @@ public class SaludoPersonalizadoActivity extends Activity
         /*           ZONA EXAMEN            */
         /***********************************/
 
-        RadioGroup rg= (RadioGroup)findViewById(R.id.RadioGroupDespedida);
+
+        //ESTA COMENTADO PARA NO INFLUIR EN EL PROGRAMA
+
+
+    /*    RadioGroup rg= (RadioGroup)findViewById(R.id.RadioGroupDespedida);
 
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
@@ -115,6 +125,39 @@ public class SaludoPersonalizadoActivity extends Activity
                 }
             }
         });
+*/
+
+        /*************************************/
+        /*          ZONA EXAMEN  2          */
+        /***********************************/
+
+        Spinner spinnerExamen= (Spinner)findViewById(R.id.SpinnerDespedida);//instanciamos el objeto
+        List<String> lista=new ArrayList<String>();//creamos una lista para los elementos que le agregaremos
+
+        lista.add("Hola");
+        lista.add("Adios");
+
+        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista);
+        adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerExamen.setAdapter(adaptador);
+
+        spinnerExamen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                Toast.makeText(parent.getContext(), "Seleccionado: " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
+
+
+
 
 
     }
