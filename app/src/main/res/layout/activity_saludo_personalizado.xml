@@ -58,6 +58,7 @@
             android:layout_height="wrap_content" />
 
     </RadioGroup>
+
     
     <CheckBox
         android:text="@string/showTime"
@@ -78,9 +79,25 @@
         android:layout_height="wrap_content"/>
 
 
+    <RadioGroup
+        android:id="@+id/RadioGroupDespedida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <RadioButton
+            android:text="@string/saludo"
+            android:id="@+id/saludoDespedida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+        <RadioButton
+            android:text="@+string/despedida"
+            android:id="@+id/despedidaDesdepida"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-
+    </RadioGroup>
 
 </LinearLayout>
