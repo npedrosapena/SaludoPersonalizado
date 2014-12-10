@@ -40,8 +40,7 @@ public class SaludoPersonalizadoActivity extends Activity
                 //al cual le pasamos el view (objeto) recogido
                Button labelDelBoton= (Button) findViewById(R.id.b_saludo);
 
-
-
+     
                EditText textoDelEditText = (EditText)findViewById(R.id.entrada);
 
 
@@ -98,7 +97,8 @@ public class SaludoPersonalizadoActivity extends Activity
         String texto= getResources().getString(R.string.noName);//de nuestros recursos recogemos el string
         AlertDialog.Builder alarma= new AlertDialog.Builder(this);
         alarma.setMessage(texto);
-        alarma.setPositiveButton("aceptar",null);
+        //alarma.setPositiveButton("aceptar",null);
+        alarma.setNeutralButton("aceptar neutral",null);
         alarma.show();
     }
 
@@ -106,11 +106,12 @@ public class SaludoPersonalizadoActivity extends Activity
     protected void showToast()
     {
         Context context= getApplicationContext();
+
         AlertDialog.Builder textoToast = new AlertDialog.Builder(this);
 
         int duracion= Toast.LENGTH_LONG;
 
-        Toast toast = Toast.makeText(context,"Metelle un nome carallo!",duracion);
+        Toast toast = Toast.makeText(context,R.string.noName,duracion);
         toast.show();
     }
 
