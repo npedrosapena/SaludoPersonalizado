@@ -79,25 +79,11 @@
         android:layout_height="wrap_content"/>
 
 
-    <RadioGroup
-        android:id="@+id/RadioGroupDespedida"
+    <Spinner
+        android:id="@+id/SpinnerDespedida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal" />
 
-        <RadioButton
-            android:text="@string/saludo"
-            android:id="@+id/saludoDespedida"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioButton
-            android:text="@+string/despedida"
-            android:id="@+id/despedidaDesdepida"
-            android:checked="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </RadioGroup>
 
 </LinearLayout>
