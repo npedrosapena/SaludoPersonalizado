@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -87,6 +88,31 @@ public class SaludoPersonalizadoActivity extends Activity
                     time.setVisibility(View.GONE);
                     fecha.setVisibility(View.GONE);
                 }
+            }
+        });
+
+
+        /*************************************/
+        /*           ZONA EXAMEN            */
+        /***********************************/
+
+       final RadioButton radioExamen=(RadioButton)findViewById(R.id.saludoDespedida);//obtengo el objeto radioButon
+       final RadioButton radioDespedidaExamen=(RadioButton)findViewById(R.id.despedidaDesdepida);
+
+        radioExamen.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Toast.makeText(getApplicationContext(), radioExamen.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        radioDespedidaExamen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), radioDespedidaExamen.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
